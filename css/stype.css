@@ -1,0 +1,503 @@
+body{
+    font: 1em Helvetica, arial, sans-serif;
+    background-color: #a49191;
+
+}
+#sile-section img{
+    height: 30rem;
+}
+#menu {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    margin-top: 0;
+    background-color:	#6A250B ;
+    border: 5px;
+    font-weight: 500;
+    padding-left: 2.5rem;
+    padding-right: 2rem;
+}
+#menu a{
+    color: #FFF;
+    border: 1px solid #6A250B;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-left: 1.2rem;
+    margin-right: 1rem; 
+}
+.danhsach{
+    background-color:	#6A250B ;
+}
+.danhsach a{
+    width: 90%;
+}
+#menu a:hover{ 
+    color: #0c0c0c;
+    background-color: #9d0d1c;
+    border: 1px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-left: 1.2rem;
+    margin-right: 1rem; 
+}
+.footer{
+    background-color:	#6A250B ;
+    color: #2f0202;
+    font-weight: 200;
+    padding-left:12 ;
+    padding-right: 12;
+    padding-bottom: 5px;
+}
+.footer .footer_edit{
+    margin-bottom: 0;
+    margin-left: 7rem;
+    padding-top: 10px;
+}
+.footer .footer_edit h5{
+    color: #420909;
+}
+.footer .footer_edit p{
+    color: #816e6e;
+}
+.footer .lienhe{
+    margin-bottom: 0;
+    margin-left: 7rem;
+    padding-top: 10px;
+}
+.footer .lienhe .copy {
+    color: rgb(132, 127, 125);
+}
+.footer .icon-footer{
+font-size: 2rem;
+color: rgb(132, 127, 125);
+}
+.section2 h1{
+    text-align: center;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 2.5rem;
+    color: #6A250B;
+    font-weight: 500;
+}
+
+.section2 .context{
+    margin-top: 5px;
+}
+
+.section2 .movie {
+    margin-left:0;
+    margin-right: 0;
+    padding: 3px;
+    margin-bottom: 7px;
+}
+.section2 .movie .card {
+ max-width: 100%;
+ height: 15rem;
+ overflow: hidden; 
+}
+.section2 .movie .card-body{
+    background-color:	#8E2509;
+}
+.section2 .movie .btn {
+   color: aliceblue;
+   font-size: 0.8rem;
+   }
+
+.section2 .movie .card img{
+    max-width: 100%;
+    height: 17rem; 
+  transition-duration: 0.3s; 
+   }
+ .section2 .movie .card img:hover{
+    transform: scale(1.2);
+   } 
+.movie a{
+    background-color: rgb(224, 64, 6); /* #b83a18; */
+    font-weight: 200;
+    color: #0c0c0c;
+}
+.movie a:hover{
+    color: black;/* #6A250B ; */
+    font-weight: 500;
+    background-color: rgb(89, 2, 2); /* #;807777; */
+}
+.context2{
+    background-color: #c0bbbb;
+    font-weight: 400;
+}
+.section2 .context2 a{
+   font-size: 1rem;
+   font-weight: 300;
+   color: #420909;
+}
+#dangnhap .bieumau{
+ background-color: #FFF;
+ border: 1.5px solid;
+ border-radius: 1rem;
+ border-color: #000000;
+ margin-top: 1rem ;
+ margin-bottom: 1.2rem;
+ padding-left: 0.2rem;
+}
+#dangnhap{
+    background-color: #833b21 ;
+    margin-bottom: 10rem;
+    padding-bottom: 5rem;
+    padding-top: 3rem;
+    border: 2px solid #833b21;
+    border-bottom-right-radius: 25%;
+    border-bottom-left-radius: 50%;
+}
+#dangnhap .bieumau h2{
+    text-align: center;
+    margin-top: 1rem;
+    color: #420909;
+    font-weight: bold;
+}
+.bieumau label{
+    font-weight: bold;
+    text-align: left;
+}
+.bieumau .input-btn{
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.bieumau .btn{
+    background-color: #aa350b;
+    border: 1.5px solid;
+    border-radius: 1rem;
+}
+.bieumau .row a{
+    text-decoration: none;
+    color: #420909;
+    font-weight: bold;
+    margin-right: 0;
+}
+.bieumau .row a:hover{
+    text-decoration: underline;
+}
+.quangcao{
+    color: #2c2b2b;
+    margin-top: 1rem;
+    text-align: left;
+    margin-left: 1rem;
+    padding-left: 1rem;
+}
+.quangcao h1{
+    font-weight:bolder;
+    text-transform: uppercase;
+    color: black;
+}
+.dangky{
+    max-width: 100%;
+    background-color: #833b21 ;
+    margin-bottom: 10rem;
+    padding-bottom: 5rem;
+    padding-top: 3rem;
+    border: 2px solid #833b21;
+    border-bottom-right-radius: 90%;
+    border-bottom-left-radius: 38%;
+  }
+  
+  .formdangky{
+      max-width: 100%;
+      background-color: #fcf6f6;
+      border-radius: 1.5rem;
+      color: black;
+      padding: 2rem;
+      border: 1.5px solid;
+      border-color: #000000;
+  }
+  .formdangky h2{
+    font-weight: bolder;
+    text-align: center;
+    color:#6A250B;
+    text-transform: uppercase;
+  }
+  .formdangky label{
+    font-weight: bold;
+  }
+  .formdangky .btn{
+    background-color: #aa350b;
+    border: 1.5px solid;
+    border-radius: 1rem;
+    color: #420909;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .formdangky .dangky-button{
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+.dieukhoansd a{
+    color: #9d0d1c;
+    text-decoration: none;
+}
+.dieukhoansd a:hover{
+    text-decoration: underline;
+}
+  .error{
+      color: #9d0d1c;
+      font-size: 1.2rem;
+  }
+  .slide_uudai{
+    margin-top: 2rem;
+  
+  }
+  
+  .slide_uudai .uudai{
+      height: 28rem;
+      background-color:#b83a18;
+     border-radius: 1rem;
+      overflow: hidden;
+    }
+
+#chitiet{
+        background-color: #833b21 ;
+        margin-bottom: 1.2rem;
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+        border: 2px solid #833b21;
+        border-bottom-right-radius: 25%;
+        border-bottom-left-radius: 50%;
+    }
+    .trailer{
+        background-color: rgb(218, 3, 3);
+        font-weight: 500;
+    }
+    .videotrailer{
+        color: #2c2b2b;
+        margin-top: 1rem;
+        text-align: left;
+        margin-left: 1rem;
+        padding-left: 1rem;
+    }
+    .videotrailer h1{
+        font-weight:bolder;
+        text-transform: uppercase;
+        color: black;
+    }
+    #chitiet .videotrailer  a:hover{
+        background-color: rgb(41, 39, 39);
+        color: white;
+    }
+.giave{
+    margin-bottom: 4rem;
+    margin-top: 0;
+}
+.giave #banggia{
+    border-color:black;
+    width:100%;
+    background-color: #918c8c;
+}
+.giave h2 , h4{
+    font-weight: 500;
+}
+    /* lich chieu */
+#lichchieu{
+ background-color: #833b21 ;
+ border: 2px solid #833b21;
+
+}
+#lichchieu #lich{
+background-color: #e8e3e3;
+border-bottom-right-radius: 25%;
+ border-bottom-left-radius: 25%;
+ border-radius: 2rem;
+ margin-bottom: 1rem;
+ border: 2px solid #833b21;
+}
+#lichchieu h1{
+    text-align: center;
+    margin-top: 1rem;
+    color: #420909;
+    font-weight: bold;
+}
+#lichchieu h4{
+ font-weight: bold;
+ color: #000;
+ text-transform: uppercase;
+}
+.giochieu h5{
+    font-weight: bold;
+    color:black;
+    margin-left: 2rem;
+}
+
+#lichchieu .phim .ngaychuachon,.ngay{ 
+  color: #000;
+  font-weight: 500;
+   margin-top: 2rem;
+    margin-left: 10px;
+    border: 1.5px solid;
+    border-radius: 1rem;
+}
+
+#lichchieu .phim .ngaychuachon:hover{
+    background-color: #aa350b;
+}
+#lichchieu .phim .ngay{
+    background-color: rgb(171, 41, 41);
+    font-weight: 500;
+}
+#lichchieu .giochieu{
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+
+
+#lichchieu .giochieu .giolay{
+    background-color:  #efefef;
+    color: black;     
+    border: 2px solid;
+    border-radius: 1rem;
+}
+#lichchieu .giochieu .giolay:hover{
+    background-color:rgb(169, 46, 46);
+    color: #000000;
+}
+#lichchieu .giochieu .giobo{
+    background-color: #c6c2c2;
+    color: black;     
+    border: 2px solid;
+    border-radius: 1rem;
+}
+#lichchieu .giochieu .giobo:hover{
+    background-color:  #474646;
+    color: #000000;
+}
+#lichchieu .giochieu a{
+    text-decoration: none;
+}
+#lichchieu .giochieu .gio .tentua{
+    text-decoration: none;
+}
+#lichchieu .giochieu .khunggio{
+    margin-left: 3rem;
+}
+#lichchieu .nhan{
+    color: #420909;
+    margin-right: 0;
+    padding: 0;
+    text-align: right;
+    padding-top: 0.5rem;
+    font-weight: bold;
+}
+#lichchieu .timkiem{
+    background-color: #000;
+    color: #FFF;
+}
+/* dat ve*/
+#thongtin {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    background-color: #736f6f;
+}
+#thongtin h2{
+    margin-top: 0;
+    margin-bottom: 0;
+   text-align: center;
+   background-color: #820707;
+   font-weight: 500;
+   color: #fcf6f6;
+}
+
+#thongtinchieu {
+    background-color: #a4a1a1;
+    margin-top: 1px;
+    color: #000;
+    margin-top:0;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    border: #000 2px solid;
+}
+#thongtinchieu .rapphong{
+    text-align: left;
+    margin-left: 1rem;
+    font-weight: bolder;
+}
+#thongtinchieu .manhinh{
+    margin-left: 2rem;
+    margin-right: 1rem;
+    font-weight: 500;
+    color: #000;
+    text-align: left;
+}
+#thongtinchieu .manhinh h5{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+#thongtinchieu .hangngoi .ghengoivip{
+      border: 1px #8E2509 solid;
+      background-color: #d75c2f;
+}
+#thongtinchieu .hangngoi .ghengoithuong{
+    border: 1px #4e4e4e solid;
+    background-color: #9e9797;
+}
+#thongtinchieu .hangngoi .ghengoicapdoi{
+    border: 1px #171616 solid;
+    background-color: #885431;
+}
+#thongtinchieu .hangngoi .ghengoicapdoi:hover{
+      background-color: rgb(118, 173, 140);
+}
+#thongtinchieu .hangngoi .ghengoivip:hover{
+    background-color: rgb(118, 173, 140);
+}
+#thongtinchieu .hangngoi .ghengoithuong:hover{
+    background-color: rgb(97, 153, 119);
+}
+#thongtinchieu .hangdoi .datdat{
+    background-color: #2c2b2b;
+    border: 1px black solid;
+}
+
+#thongtinchieu .hangdoi button{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#chuthich{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+#chuthich .dangchon{
+    background-color: green;
+    border: 1px black solid;
+}
+#chuthich .dadat{
+    background-color: #2c2b2b;
+    border: 1px black solid;
+}
+#chuthich .ghethuong{
+    background-color: #9e9797;
+    border: 1px #4e4e4e solid;
+}
+#chuthich .ghevip{
+    border: 1px #8E2509 solid;
+    background-color: #d75c2f;
+}
+#chuthich .ghecapdoi{
+    border: 1px #171616 solid;
+    background-color: #885431;
+
+}
+#hoadon{
+    margin-top: 1rem;
+    background-color: #b97062;
+    border-radius: 1rem;
+    border: black 3px solid;
+}
+#hoadon h5{
+    text-align: center;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+#hoadon .rapphong{
+    text-align: left;
+    font-weight: 600;
+}
+
