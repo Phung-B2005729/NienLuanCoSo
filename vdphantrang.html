@@ -1,0 +1,89 @@
+                <table class="navigation d-print-none">
+                <tr>
+                  <td class="navigation_separator"></td>
+          
+                  
+                  <td>
+            <form action="index.php?route=/sql" method="post">
+              <input type="hidden" name="db" value="vexemphimonline">
+              <input type="hidden" name="table" value="lichchieu">
+              <input type="hidden" name="sql_query" value="SELECT * FROM `lichchieu`">
+              <input type="hidden" name="goto" value="">
+              <input type="hidden" name="is_browse_distinct" value="">
+              <input type="hidden" name="token" value="21413b3633217a2e5f6555327b7b2e4a">
+               <select class="pageselector ajax" name="pos" >               
+                 <option selected="selected" style="font-weight: bold" value="0">1</option>
+                          <option  value="25">2</option>
+                          <option  value="50">3</option>
+           </select>
+            </form>
+          </td>
+          
+                  <td>
+              <form action="index.php?route=/sql" method="post" >
+                  <input type="hidden" name="db" value="vexemphimonline">
+                  <input type="hidden" name="table" value="lichchieu">
+                  <input type="hidden" name="token" value="21413b3633217a2e5f6555327b7b2e4a">
+                  <input type="hidden" name="sql_query" value="SELECT * FROM `lichchieu`">
+                  <input type="hidden" name="pos" value="25">
+                  <input type="hidden" name="is_browse_distinct" value="">
+                  <input type="hidden" name="goto" value="">
+                  
+                  <input type="submit" name="navig" class="btn btn-secondary ajax" value="&nbsp;&gt;" title="Next">
+              </form>
+          </td>
+          <td>
+              <form action="index.php?route=/sql" method="post" onsubmit="return true">
+                  <input type="hidden" name="db" value="vexemphimonline">
+                  <input type="hidden" name="table" value="lichchieu">
+                  <input type="hidden" name="token" value="21413b3633217a2e5f6555327b7b2e4a">
+                  <input type="hidden" name="sql_query" value="SELECT * FROM `lichchieu`">
+                  <input type="hidden" name="pos" value="50">
+                  <input type="hidden" name="is_browse_distinct" value="">
+                  <input type="hidden" name="goto" value="">
+                  
+                  <input type="submit" name="navig" class="btn btn-secondary ajax" value="&nbsp;&gt;&gt;" title="End">
+              </form>
+          </td>
+          
+          
+                            <td><div class="navigation_separator">|</div></td>
+                  
+                            <td>
+                      <form action="index.php?route=/sql" method="post">
+                        <input type="hidden" name="db" value="vexemphimonline"><input type="hidden" name="table" value="lichchieu"><input type="hidden" name="server" value="1"><input type="hidden" name="sql_query" value="SELECT * FROM `lichchieu`"><input type="hidden" name="is_browse_distinct" value=""><input type="hidden" name="goto" value=""><input type="hidden" name="session_max_rows" value="all"><input type="hidden" name="pos" value="0"><input type="hidden" name="token" value="21413b3633217a2e5f6555327b7b2e4a">
+                        <input type="checkbox" name="navig" id="showAll_898307875" class="showAllRows" value="all">
+                        <label for="showAll_898307875">Show all</label>
+                      </form>
+                    </td>
+                    <td><div class="navigation_separator">|</div></td>
+                  
+                  <td>
+                    <div class="save_edited hide">
+                      <input class="btn btn-link" type="submit" value="Save edited data">
+                      <div class="navigation_separator">|</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="restore_column hide">
+                      <input class="btn btn-link" type="submit" value="Restore column order">
+                      <div class="navigation_separator">|</div>
+                    </div>
+                  </td>
+                  <td class="navigation_goto">
+                    <form action="index.php?route=/sql" method="post" class="maxRowsForm">
+                      <input type="hidden" name="db" value="vexemphimonline"><input type="hidden" name="table" value="lichchieu"><input type="hidden" name="server" value="1"><input type="hidden" name="sql_query" value="SELECT * FROM `lichchieu`"><input type="hidden" name="is_browse_distinct" value=""><input type="hidden" name="goto" value=""><input type="hidden" name="pos" value="0"><input type="hidden" name="unlim_num_rows" value="69"><input type="hidden" name="token" value="21413b3633217a2e5f6555327b7b2e4a">
+          
+                      <label for="sessionMaxRowsSelect">Number of rows:</label>
+                      <select class="autosubmit" name="session_max_rows" id="sessionMaxRowsSelect">
+                                                      <option value="25" selected>25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                        <option value="250">250</option>
+                                        <option value="500">500</option>
+                                    </select>
+                    </form>
+                  </td>
+                  </tr>
+                  </table>
+                
