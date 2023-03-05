@@ -500,4 +500,13 @@ border-bottom-right-radius: 25%;
     text-align: left;
     font-weight: 600;
 }
+#hoadon .rapphong input{
+    background-color: #b97062;
+    border: #b97062 3px solid;
+    color: #000;
+}
+#hoadon .rapphong label{
+    margin-left: 5px;
+    color: #000;
+}
 

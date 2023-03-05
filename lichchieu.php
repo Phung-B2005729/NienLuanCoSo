@@ -59,7 +59,7 @@ if(empty($_GET['ngaychieu'])){
 }
 $_SESSION['get_ngay']=$_GET['ngaychieu'];
 $get_ngay=$_SESSION['get_ngay'];
-if(!isset($_GET['id_phim'])){
+if(!isset($_GET['id_phim']) || empty($_GET['id_phim'])){
   $_GET['id_phim']='';
   $get_phim=$_GET['id_phim'];
 }

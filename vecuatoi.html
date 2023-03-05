@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="col-1 ghengoithuong btn" id="A01" value="A01" onclick="ghechon('A01',7000)" ondblclick="ghebo(this)">A01</button>
+    <button class="col-1 ghengoithuong btn" id="A02" value="A02" onclick="ghechon('A02',7000)" ondblclick="ghebo(this)">A02</button>
+    <form action="vecuatoi.html" method="POST">
+        <div class="col-12 rapphong">
+          <p id="ghe">Ghế 
+             
+          </p>
+      </div>
+      <hr/>
+      <div class="col-12 rapphong">
+      <p id="bapnuoc">Bắp Nước</p>
+   </div>
+   <hr/>
+      <div class="col-12 rapphong">
+        Tổng Tiền: <label id="nhan"></label> <input type="hidden" name="tongtien" value='' id="tien">
+     </div>
+     <hr/>
+    <input type="hidden" name="id_khachhang" value="'.$_SESSION['user'].'">
+    <input type="hidden" name="id_lichchieu" value="'.$_GET['id_lichchieuchon'].'">
+    <input type="hidden" name="ngaydat" value="'.date('Y-m-d').'">
+
+     <button class="btn btn-danger text-center" name="datve" type="submit">Đặt Vé</button>
+      <hr/>
+      </form>
+
+<script src="js/jquery.js"></script>
+</body>
+</html>

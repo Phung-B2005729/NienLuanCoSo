@@ -10,28 +10,9 @@ if(!isset($_SESSION['user'])){
                      </script>';
 }
 if(isset($_SESSION['user'])&&isset($_GET['id_lichchieuchon'])){
-$sql1="SELECT * FROM ghe order by id_ghe";
-    $serul1 = mysqli_query($conn,$sql1);
-    $soghe=mysqli_num_rows($serul1);
-    $_SESSION['soghe']=$soghe;
-    if(mysqli_num_rows($serul1) > 0){
-        $i=0;
-        $arr=array();
-        while($row1 = $serul1->fetch_assoc()){
-            $bien1='id_ghe';
-            $bien3='id_loai';
-            $i=$i+1;
-            $k=(string)$i;
-            $bien1.=$k;
-            $bien3.=$k;
-            $_SESSION[$bien1]=$row1['id_ghe'];
-            $_SESSION[$bien3]=$row1['id_loaighe'];
-            $arr[$i]['loaighe']=$row1['id_loaighe'];
-            $arr[$i]['ghe']=$row1['id_ghe'];
-        
-        }}
+
     }
-    if(isset($_SESSION['user'])&&(!isset($_GET['id_lichchieuchon']))){
+if(isset($_SESSION['user'])&&(!isset($_GET['id_lichchieuchon']))){
         echo' <script language="javascript">
                      window.location="lichchieu.php";
                      </script>';
@@ -41,7 +22,9 @@ $sql1="SELECT * FROM ghe order by id_ghe";
    <?php
     if(isset($_SESSION['user'])&&isset($_GET['id_lichchieuchon'])){
         $id_lich=$_GET['id_lichchieuchon'];
-        $sql="CALL hienthilichchieu('$id_lich')";
+        $sql="SELECT * FROM phim,lichchieu,phongchieu,suatchieutrongngay,cumrap WHERE phim.id_phim=lichchieu.id_phim
+        and lichchieu.id_suatchieu=suatchieutrongngay.id_suatchieu and phongchieu.id_phongchieu=lichchieu.id_phongchieu and phongchieu.id_rap=cumrap.id_rap
+        and lichchieu.id_lichchieu='$id_lich'";
         $serul = mysqli_query($conn,$sql);
         if(mysqli_num_rows($serul)==1){
             while($row = $serul->fetch_assoc()){
@@ -51,9 +34,36 @@ $sql1="SELECT * FROM ghe order by id_ghe";
                     $giobatdau=$row['thoigianbatdau'];
                     $gioketthuc=$row['thoigianketthuc'];
                     $ngaychieu=$row['ngaychieu'];
+                    $khunggio=$row['id_khunggio'];
+                 
             }
 
         }
+        $sql1="SELECT ghe.id_ghe,gia, ghe.id_loaighe from giave, ghe,loaighe where giave.id_loaighe = loaighe.id_loaighe and ghe.id_loaighe=loaighe.id_loaighe and id_khunggio='$khunggio' ORDER by id_ghe;";
+    $serul1 = mysqli_query($conn,$sql1);
+    $soghe=mysqli_num_rows($serul1);
+    $_SESSION['soghe']=$soghe;
+    if(mysqli_num_rows($serul1) > 0){
+        $i=0;
+        $arr=array();
+        while($row1 = $serul1->fetch_assoc()){
+            $bien1='id_ghe';
+            $bien3='id_loai';
+            $bien4="gia";
+            $i=$i+1;
+            $k=(string)$i;
+            $bien1.=$k;
+            $bien3.=$k;
+            $bien4.=$k;
+            $_SESSION[$bien1]=$row1['id_ghe'];
+            $_SESSION[$bien3]=$row1['id_loaighe'];
+            $_SESSION[$bien4]=$row1['gia']; // giá ghế 1
+            $arr[$i]['loaighe']=$row1['id_loaighe'];
+            $arr[$i]['ghe']=$row1['id_ghe'];
+            $arr[$i]['gia']=$row1['gia'];
+
+        
+        }}
        echo '<div class="container" id="thongtin" >
         <div class="row">
           <h2 class="">ĐẶT VÉ ONLINE</h2>
@@ -81,14 +91,14 @@ $sql1="SELECT * FROM ghe order by id_ghe";
                             for($i=$solan+1; $i<=$soghe; $i++){
                                 $solan=$solan+1;
                                  if($arr[$i]['loaighe']=='V1'){
-                                     echo'<input class="col-1 ghengoivip btn" value="'.$arr[$i]['ghe'].'" type="checkbox"onclick="ghechon(this)" ondblclick="ghebo(this)">';
+                                     echo'<button class="col-1 ghengoivip btn" value="'.$arr[$i]['ghe'].'" id="'.$arr[$i]['ghe'].'" onclick="ghechon(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')" ondblclick="xoaghe(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')"></button>';
                                  }
                                  elseif($arr[$i]['loaighe']=='T1'){
-                                     echo'<button class="col-1 ghengoithuong btn" value="'.$arr[$i]['ghe'].'" onclick="ghechon(this)" ondblclick="ghebo(this)">'.$arr[$i]['ghe'].'</button>';
+                                     echo'<button class="col-1 ghengoithuong btn" value="'.$arr[$i]['ghe'].'" id="'.$arr[$i]['ghe'].'" onclick="ghechon(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')" ondblclick="xoaghe(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')">'.$arr[$i]['ghe'].'</button>';
          
                                  }
                                  elseif($arr[$i]['loaighe']=='CD1'){
-                                     echo'<button class="col-1 ghengoicapdoi btn" value="'.$arr[$i]['ghe'].'" onclick="ghechon(this)" ondblclick="ghebo(this)">'.$arr[$i]['ghe'].'</button>';
+                                     echo'<button class="col-1 ghengoicapdoi btn" value="'.$arr[$i]['ghe'].'" id="'.$arr[$i]['ghe'].'" onclick="ghechon(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')" ondblclick="xoaghe(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')">'.$arr[$i]['ghe'].'</button>';
                                  }
                              
                              }
@@ -98,14 +108,14 @@ $sql1="SELECT * FROM ghe order by id_ghe";
                        $k=$k+1;
                        $solan=$solan+1;
                         if($arr[$i]['loaighe']=='V1'){
-                            echo'<button class="col-1 ghengoivip btn" value="'.$arr[$i]['ghe'].'"onclick="ghechon(this)" ondblclick="ghebo(this)">'.$arr[$i]['ghe'].'</button>';
+                            echo'<button class="col-1 ghengoivip btn" id="'.$arr[$i]['ghe'].'" value="'.$arr[$i]['ghe'].'"onclick="ghechon(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')" ondblclick="xoaghe(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')">'.$arr[$i]['ghe'].'</button>';
                         }
                         elseif($arr[$i]['loaighe']=='T1'){
-                            echo'<button class="col-1 ghengoithuong btn" value="'.$arr[$i]['ghe'].'" onclick="ghechon(this)" ondblclick="ghebo(this)">'.$arr[$i]['ghe'].'</button>';
+                            echo'<button class="col-1 ghengoithuong btn" id="'.$arr[$i]['ghe'].'" value="'.$arr[$i]['ghe'].'" onclick="ghechon(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')" ondblclick="xoaghe(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')">'.$arr[$i]['ghe'].'</button>';
 
                         }
                         elseif($arr[$i]['loaighe']=='CD1'){
-                            echo'<button class="col-1 ghengoicapdoi btn" value="'.$arr[$i]['ghe'].'" onclick="ghechon(this)" ondblclick="ghebo(this)">'.$arr[$i]['ghe'].'</button>';
+                            echo'<button class="col-1 ghengoicapdoi btn" id="'.$arr[$i]['ghe'].'" value="'.$arr[$i]['ghe'].'" onclick="ghechon(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')" ondblclick="xoaghe(\''.$arr[$i]['ghe'].'\','.$arr[$i]['gia'].')">'.$arr[$i]['ghe'].'</button>';
                         }
                     
                     }
@@ -159,8 +169,11 @@ $sql1="SELECT * FROM ghe order by id_ghe";
   
 
       echo' <hr/>
+      <form action="xulydatve.php" method="POST">
          <div class="col-12 rapphong">
-           <p id="ghe">Ghế </p>
+           <p id="ghe">Ghế 
+           
+           </p>
        </div>
        <hr/>
        <div class="col-12 rapphong">
@@ -168,11 +181,17 @@ $sql1="SELECT * FROM ghe order by id_ghe";
     </div>
     <hr/>
        <div class="col-12 rapphong">
-         <p id="tien">Tổng tiền</p>
+         Tổng Tiền: <label id="nhan">0</label> VDN <input type="hidden" value="" name="tongtien" id="tien">
       </div>
       <hr/>
-      <button class="btn btn-danger text-center" type="submit">Đặt Vé</button>
+     <input type="hidden" name="id_khachhang" value="'.$_SESSION['user'].'">
+     <input type="hidden" name="id_lichchieu" value="'.$_GET['id_lichchieuchon'].'">
+     <input type="hidden" name="ngaydat" value="'.date('Y-m-d').'">
+     <input type="hidden" id="soghe" name="soghechon" value="">
+     <input type="hidden" id="sobapnuoc" name="soluongbapnuoc" value="">
+      <button class="btn btn-danger text-center" name="datve" type="submit">Đặt Vé</button>
        <hr/>
+       </form>
            </div>
 
       <div class="container" id="muabapnuoc">

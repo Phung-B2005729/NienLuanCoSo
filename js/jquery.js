@@ -100,26 +100,119 @@ function ktdangky(form){
   }
 
 
-  function timcumrap(e){
+function timcumrap(e){
    var id_rap=e.value;
-  alert("doi su kien");
   window.load('lichchieuphim.html?id=0');
   } 
-  function ghechon(e){
-    e.style.background = "Green";
-   var tenghe = document.getElementById('ghe');
-   var dong = document.createElement("p");
-  dong.innerHTML=e.value;
-  dong.setAttribute("class",""+e.value);
-    tenghe.appendChild(dong); 
-  }
-  function ghebo(e){
-    e.style.background="";
-    var ptext = document.getElementsByClassName(e.value);
-    var tenghe = document.getElementById('ghe');
-    for(var i=0; i<ptext.length; i++){
-      ptext[i].innerHTML='';
+
+  // đặt vé
+
+  function xoaghe(e,p){
+        // đổi màu ghế
+        var maughe = document.getElementById(e);
+        maughe.style.background = "";
+      // giảm tiền
+      var tien = document.getElementById('tien'); 
+      var nhantien = document.getElementById('nhan');
+      var tongtien=parseInt(tien.value);
+  
+  
+  
+      // xoá ghế
+      var tenghe = document.querySelector('#ghe');
+        var label =tenghe.querySelectorAll("label."+e);
+        var input =  tenghe.querySelectorAll('input.'+e);
+        var dodainhan=label.length;
+        var dodaiinput=input.length;
+        var sl = document.getElementById('soghe');
+        var tongsl = parseInt(sl.value);
+      for(var i=0; i<dodainhan; i++){
+        console.log('lập '+i);
+        tenghe.removeChild(label[i]);
+        tongtien= parseInt(tongtien)-parseInt(p);
+        tongsl= tongsl - parseInt('1');
+      }
+      for(var i=0; i<dodaiinput; i++){
+        console.log('lập '+i);
+        tenghe.removeChild(input[i]);
+      }
+      tongtien=parseInt(tongtien);
+      tongsl = parseInt(tongsl);
+      sl.setAttribute("value",tongsl);
+      tien.setAttribute("value",tongtien);
+      nhantien.innerHTML=tongtien;
+}
+
+
+function taoghe(e,p){
+      var maughe = document.getElementById(e);
+      maughe.style.background = "Green";
+
+      // lấy sớ lượng ghế
+
+      var sl = document.getElementById('soghe');
+      var tongsl;
+    if(sl.value==''){
+      tongsl=parseInt('1');
+    
     }
-  }
+    else{
+      tongsl=parseInt(sl.value)+parseInt('1');
+      
+    }
+         sl.setAttribute("value",tongsl);
+
+      // thêm ghế
+          var tenghe = document.getElementById('ghe'); // thêm ghế
+        var dong = document.createElement("input");
+        dong.setAttribute("value",""+e);
+        dong.setAttribute("type","hidden");
+        dong.setAttribute("name","ghe"+tongsl);
+        dong.setAttribute("class",""+e);
+        tenghe.appendChild(dong);
+        dong.checked=true;
+      // in nhãn ghế
+        var nhanghe = document.createElement("label");
+        nhanghe.innerText=e;
+        nhanghe.setAttribute("class",""+e);
+        tenghe.appendChild(nhanghe);
+
+        // thêm nhãn tiền
+        var tien = document.getElementById('tien'); 
+        
+    if(tien.value==''){
+      tongtien= parseInt(p);
+    }
+    else{
+      var tongtien = parseInt(tien.value);
+      tongtien = parseInt(tongtien+p);
+    }
+
+          tien.setAttribute("value",tongtien);
+          // in số tiền
+          var nhantien = document.getElementById('nhan');
+          tongtien=parseInt(tongtien);
+          nhantien.innerHTML=tongtien;
+}
+
+
+function ghechon(e,p){
+
+  let el = document.getElementsByClassName(""+e);
+
+ // alert("  giá trị class e " + el.length);
+//  alert(""+(el.length !=0));
+
+  if ((el.length != 0)) {
+    
+    xoaghe(e,p);
+    
+  } else{
+    taoghe(e,p);
+}
+}
+
+
+
 
  
