@@ -388,24 +388,25 @@ border-bottom-right-radius: 25%;
 }
 /* dat ve*/
 #thongtin {
-    margin-top: 1rem;
+    margin-top: 0;
     margin-bottom: 2rem;
     background-color: #736f6f;
 }
 #thongtin h2{
     margin-top: 0;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
     margin-bottom: 0;
    text-align: center;
    background-color: #820707;
+   border: #000 2px solid;
    font-weight: 500;
    color: #fcf6f6;
 }
 
 #thongtinchieu {
     background-color: #a4a1a1;
-    margin-top: 1px;
     color: #000;
-    margin-top:0;
     margin-bottom: 2rem;
     margin-top: 1rem;
     padding-bottom: 2rem;
@@ -429,6 +430,11 @@ border-bottom-right-radius: 25%;
   font-weight: bold;
   margin-bottom: 1rem;
 }
+#thongtinchieu .hangngoi .dadat{
+    background-color: #2a2a2a;
+    border: 1px rgb(45, 44, 44) solid;
+    color: #5c5a5a;
+}
 #thongtinchieu .hangngoi .ghengoivip{
       border: 1px #8E2509 solid;
       background-color: #d75c2f;
@@ -450,10 +456,7 @@ border-bottom-right-radius: 25%;
 #thongtinchieu .hangngoi .ghengoithuong:hover{
     background-color: rgb(97, 153, 119);
 }
-#thongtinchieu .hangdoi .datdat{
-    background-color: #2c2b2b;
-    border: 1px black solid;
-}
+
 
 #thongtinchieu .hangdoi button{
     margin: 0;
@@ -469,7 +472,7 @@ border-bottom-right-radius: 25%;
     border: 1px black solid;
 }
 #chuthich .dadat{
-    background-color: #2c2b2b;
+    background-color: #2a2a2a;
     border: 1px black solid;
 }
 #chuthich .ghethuong{
@@ -500,13 +503,80 @@ border-bottom-right-radius: 25%;
     text-align: left;
     font-weight: 600;
 }
-#hoadon .rapphong input{
+#haodon .rapphong input{
     background-color: #b97062;
-    border: #b97062 3px solid;
-    color: #000;
+    border: #000000 3px solid;
+    color: #000000;
+}
+#hoadon .rapphong .inputstk{
+    background-color: #b97062;
+    border: #f9f7f7 1px solid;
+    color: #000000;
+    margin-left: 1.5rem;
+    width: 20px;
+
 }
 #hoadon .rapphong label{
     margin-left: 5px;
     color: #000;
+    font-weight: 500;
+}
+#hoadon .rapphong .nhanpt{
+    margin-left: 5px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 1px;
+    border: #b97062 3px solid;
+}
+#hoadon .rapphong .inputradio{
+    background-color: #b97062;
+}
+#hoadon .rapphong .danhsachnganhang{
+  background-color: #b97062;
+  color:  #000;
 }
 
+/* bap nuoc*/
+#thongtin #muabapnuoc{
+    background-color: #8c8888;
+   /* background-color: #957c77;*/
+    color: #000;
+    border: #000 2px solid;
+   margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 2rem;
+    border-radius: 2px;
+}
+#muabapnuoc h3{
+    font-weight: bold;
+    color: #060606;
+    margin-top: 1rem;
+}
+#muabapnuoc .bap{
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    
+}
+#muabapnuoc .tungsp{
+    border: #000  1px solid;
+    border-radius: 1rem;
+    text-align: left;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+ 
+    background-color: #b97062;
+    background-color: #a65646;
+    background-color: #ab675a;
+}
+
+#muabapnuoc .anhbap .img{
+    border: #000 1px solid;
+}
+#muabapnuoc .thongtinbap h5{
+    font-weight: 500;
+    color: #000;
+}

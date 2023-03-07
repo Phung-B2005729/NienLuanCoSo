@@ -65,10 +65,43 @@ if(isset($_SESSION['user'])&&(!isset($_GET['id_lichchieuchon']))){
 
         
         }}
+
+        // lay ghe da duoc dat
+      $sql = "SELECT id_ghe FROM datve, lichchieu, vephimdadat WHERE datve.id_datve=vephimdadat.id_datve and lichchieu.id_lichchieu=datve.id_lichchieu and lichchieu.id_lichchieu='$id_lich'";
+      $serul1 = mysqli_query($conn, $sql);
+      $slghedadat=0;
+      if(mysqli_num_rows($serul1) > 0){
+        $slghedadat = mysqli_num_rows($serul1);
+        $ghedadat = array();
+        $i=0;
+        while($row = $serul1->fetch_assoc()){
+            $i=$i+1;
+            $ghedadat[$i]['id_ghedadat']=$row['id_ghe'];
+        }
+      }
+// lay bat nuoc
+        $sql2 = "SELECT * FROM bapnuoc, hinhanh where bapnuoc.hinhanh=hinhanh.id_hinhanh";
+        $sul1 = mysqli_query($conn, $sql2);
+        $slbap=mysqli_num_rows($sul1);
+        $_SESSION['sobapnuoc']=mysqli_num_rows($sul1);
+        if(mysqli_num_rows($sul1) > 0){
+            $i=0;
+           $bap=array();
+            while($row = $sul1->fetch_assoc()){
+                $i=$i+1;
+                $bap[$i]['id_bap']=$row['id_bapnuoc'];
+                $bap[$i]['tensp']=$row['tensp'];;
+                $bap[$i]['gia']=$row['giatien'];
+                $bap[$i]['mota']=$row['mota'];
+                $bap[$i]['hinhanh']=$row['tenhinhanh'];
+                
+            }
+        }
        echo '<div class="container" id="thongtin" >
         <div class="row">
           <h2 class="">ĐẶT VÉ ONLINE</h2>
-          <div class="col-7" id="thongtinchieu">
+          <div class="col-7">
+          <div class="container" id="thongtinchieu">
                 <div class="row rapphong">';
                     echo'<p>'.$tenrap.' | '.$tenphong.'<br/>'.$ngaychieu.' '.$giobatdau.' ~ '.$ngaychieu.' '.$gioketthuc.'</p>
                     </div>';
@@ -105,7 +138,8 @@ if(isset($_SESSION['user'])&&(!isset($_GET['id_lichchieuchon']))){
                              }
                         }
                     }
-               else{     for($i=$h+1; $i<($h+13); $i++){
+               else{     
+                for($i=$h+1; $i<($h+13); $i++){
                        $k=$k+1;
                        $solan=$solan+1;
                         if($arr[$i]['loaighe']=='V1'){
@@ -154,7 +188,8 @@ if(isset($_SESSION['user'])&&(!isset($_GET['id_lichchieuchon']))){
            </div>
                <h6><b>Lưu ý:</b> Giá vé đặt online sẽ được tính là giá vé người lớn</h6>
       </div>
-  </div>
+        </div>
+        </div>
         </div>
   <?php
   echo'<div class="col-1"></div>
@@ -186,17 +221,51 @@ if(isset($_SESSION['user'])&&(!isset($_GET['id_lichchieuchon']))){
       <button class="btn btn-danger text-center" name="datve" type="submit">Đặt Vé</button>
        <hr/>
        </form>
-           </div>
+           </div></div></div>';
 
-      <div class="container" id="muabapnuoc">
-           
-      </div>
-      </div>
-    </div>
-   
-  </div>';
+
+ echo'<div class="row mb-5"><div  class="container mb-5" id="muabapnuoc"><hr/><hr/>
+           <h4 class="text-center">SẢN PHẨM BẮP NƯỚC</h4>';
+        
+ 
+   $h=0;
+   $l=0;
+   $slan=$slbap/3;
+   $lap=0;
+   for($i=1; $i<=$slan; $i++){
+       echo'<hr/><hr/> <div class="row bap mb-5 ml-5">';
+       if($i==$slan){
+        $lap=$slbap;
+       }
+       else{
+        $lap=$h+3;
+       }
+     for($k=$h+1; $k<=$lap; $k++){
+           $l=$l+1;
+         
+       echo'<div class="col-4">
+        <div class="row"> 
+              <div class="col-3 anhbap mb-5"><img src="Anh/'.$bap[$k]['hinhanh'].'" border=1 width="70" height="70"></div>
+              <div class="col-9 thongtinbap mb-5">
+              <h5>'.$bap[$k]['tensp'].'</h5>
+              <p>'.$bap[$k]['mota'].'</p>
+              </div>
+              </div>
+           <div class="row chonsp">
+         <span class="add-cart">Số Lượng:
+          <input id="'.$bap[$k]['id_bap'].'" name="'.$bap[$k]['tensp'].'" class="slbapnuoc" type="number" min="0" max="100" size="3" value="0" onchange="chonbapnuoc(\''.$bap[$i]['tensp'].'\','.$bap[$i]['gia'].')" onkeydown="return false"/> 
+           </div></div>';
+         }
+       
+       $h=$l;
+       echo '</div>';
+        }
+          echo'</div></div>';
+
+  echo'</div>';
 }
 ?>
+
 </main>
 <?php
 include('footer.php');

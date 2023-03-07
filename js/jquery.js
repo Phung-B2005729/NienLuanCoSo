@@ -127,13 +127,12 @@ function timcumrap(e){
         var sl = document.getElementById('soghe');
         var tongsl = parseInt(sl.value);
       for(var i=0; i<dodainhan; i++){
-        console.log('lập '+i);
         tenghe.removeChild(label[i]);
         tongtien= parseInt(tongtien)-parseInt(p);
         tongsl= tongsl - parseInt('1');
       }
       for(var i=0; i<dodaiinput; i++){
-        console.log('lập '+i);
+     //   console.log('lập '+i);
         tenghe.removeChild(input[i]);
       }
       tongtien=parseInt(tongtien);
@@ -143,11 +142,9 @@ function timcumrap(e){
       nhantien.innerHTML=tongtien;
 }
 
-
 function taoghe(e,p){
       var maughe = document.getElementById(e);
       maughe.style.background = "Green";
-
       // lấy sớ lượng ghế
 
       var sl = document.getElementById('soghe');
@@ -202,15 +199,151 @@ function ghechon(e,p){
 
  // alert("  giá trị class e " + el.length);
 //  alert(""+(el.length !=0));
+var maughe = document.getElementById(e);
 
+if(maughe.value=="CD1"){
+  var ghedoitiep;
+  var dodaichuoi=e.length;
+  var stt;
+  var e_ketiep;
+  var stttiep;
+  if((parseInt(e.slice(-1))%2)!=0){
+    stt = parseInt(e.slice(-2))+1;
+  }
+  else{
+    stt = parseInt(e.slice(-2))-1;
+  }
+  stttiep=stt;
+  if(stt<=9){
+    stttiep="0" + stt;
+  }
+  e_ketiep = e.charAt(0) + stttiep;
+  
+  let el_ketiep = document.getElementsByClassName(""+e_ketiep);
+  if ((el.length != 0) &&(el_ketiep.length!=0) ) {
+    
+    xoaghe(e,p);
+    xoaghe(e_ketiep,p);
+    
+  } else{
+    taoghe(e,p);
+    taoghe(e_ketiep,p);
+    }
+    
+}
+else{
   if ((el.length != 0)) {
     
     xoaghe(e,p);
     
+    
   } else{
     taoghe(e,p);
+    }
 }
 }
+
+// bap nuoc
+function chonbapnuoc(e,g,v){
+  var sobapnuoc = document.getElementById('sobap');
+  var tenbapnuoc = document.getElementById('bapnuoc'); // inset nhãn bắp nước
+  var slbap = document.getElementById(''+e); // sl bắp nước
+  slbap.value=v;
+  var slc=0;
+ var sl= parseInt(sobapnuoc.value) + parseInt(v);
+  var nhanbap = document.getElementsByClassName('bap'+e); 
+  if(v!=0){
+                  if(nhanbap.length==0){
+                    var nhan = document.createElement("label");
+                    nhan.setAttribute("class","bap"+e);
+                    nhan.innerHTML=+v+" "+e+",";
+                    tenbapnuoc.appendChild(nhan);
+                  }
+                  else{
+                    for(var i=0; i<nhanbap.length; i++){
+                      var cu = nhanbap[i].innerText;
+                    // alert("nhãn củ "+cu.charAt(0));
+                    slc = parseInt(cu.charAt(0));
+                      nhanbap[i].innerText=+v+" "+e+",";
+                      
+                    }
+                  }  
+              // thêm nhãn tiền
+              var tien = document.getElementById('tien'); 
+              if(tien.value==''){
+                tongtien= parseInt(g)*v;
+              }
+              else{
+                var tongtien = parseInt(tien.value);
+              // alert("gia cu  "+ parseInt(g*(slc)))
+                tongtien = parseInt(tongtien-(g*(slc))+(g*v));
+              }
+
+                    tien.setAttribute("value",tongtien);
+                    // in số tiền
+                    var nhantien = document.getElementById('nhan');
+                    tongtien=parseInt(tongtien);
+                    nhantien.innerHTML=tongtien;
+
+    }
+    else{ // khi sl về 0
+      var nhan = document.getElementsByClassName('bap'+e);
+                if(nhan.length!=0){
+                
+                  for(var i=0; i<nhan.length; i++){
+                  var cu = nhan[i].innerText;
+                  slc = parseInt(cu.charAt(0));
+                    nhan[i].innerText=+v+" "+e+",";
+                    tenbapnuoc.removeChild(nhan[i]);
+                  }
+                  
+
+                }
+                var tien = document.getElementById('tien'); 
+                if(tien.value==''){
+                  tongtien= parseInt(g)*v;
+                }
+                else{
+                  var tongtien = parseInt(tien.value);
+                // alert("gia cu  "+ parseInt(g*(slc)))
+                  tongtien = parseInt(tongtien-(g*(slc))+(g*v));
+                }
+              
+                      tien.setAttribute("value",tongtien);
+                      // in số tiền
+                      var nhantien = document.getElementById('nhan');
+                      tongtien=parseInt(tongtien);
+                      nhantien.innerHTML=tongtien;
+              
+    }
+    sobapnuoc.value= parseInt(sl-slc);
+  }
+
+function doiphuongthuc(){
+  var nhap = document.getElementById('nhstk');
+  var stk = document.getElementById('stk');
+  var pass = document.getElementById('nhpass'); // lây hàng stk
+  var atm = document.getElementById('Thanh Toán Trực Tuyến Bằng Thẻ ATM');
+  if(atm.checked==true){
+    stk.hidden=false;
+    nhap.required=true;
+ //   nhap.disabled=false;
+    pass.required=true;
+  //  pass.disabled=false;
+  }
+  if(atm.checked==false){
+    stk.hidden=true;
+    nhap.required=false;
+ //   nhap.disabled=true;
+    pass.required=false;
+ //   pass.disabled=true;
+  }
+}
+function datve(e){
+  alert(e.phuongthuc.value);
+  return false;
+}
+
 
 
 
